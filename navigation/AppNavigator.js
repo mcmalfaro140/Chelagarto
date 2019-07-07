@@ -1,8 +1,4 @@
-// import HomeScreen from '../screens/HomeScreen';
-// import LinksScreen from '../screens/LinksScreen';
-// import SettingsScreen from '../screens/SettingsScreen';
 
-// //This is an example code for NavigationDrawer//
 // import React, { Component } from 'react';
 // //import react in our code.
 // import { View, Image, TouchableOpacity } from 'react-native';
@@ -11,12 +7,14 @@
 // //import {DrawerNavigator, StackNavigator} from 'react-navigation';
 // //For React Navigation 3.+ import following
 // import {
-//   DrawerNavigator,
-//   StackNavigator,
+//   createDrawerNavigator,
+//   createStackNavigator,
 //   createAppContainer,
 // } from 'react-navigation';
  
-
+// import HomeScreen from './screens/HomeScreen';
+// import LinksScreen from './screens/LinksScreen';
+// import SettingsScreen from './screens/SettingsScreen';
  
 // class NavigationDrawerStructure extends Component {
 //   //Structure for the navigatin Drawer
@@ -30,7 +28,7 @@
 //         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
 //           {/*Donute Button Image */}
 //           <Image
-//             source={require('../assets/images/drawer.png')}
+//             source={require('./assets/images/drawer.png')}
 //             style={{ width: 25, height: 25, marginLeft: 5 }}
 //           />
 //         </TouchableOpacity>
@@ -42,7 +40,7 @@
 // //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
 // //const FirstActivity_StackNavigator = StackNavigator({
 // //For React Navigation 3.+
-// const FirstActivity_StackNavigator = StackNavigator({
+// const FirstActivity_StackNavigator = createStackNavigator({
 //   //All the screen from the Screen1 will be indexed here
 //   First: {
 //     screen: HomeScreen,
@@ -60,7 +58,7 @@
 // //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
 // //const FirstActivity_StackNavigator = StackNavigator({
 // //For React Navigation 3.+
-// const Screen2_StackNavigator = StackNavigator({
+// const Screen2_StackNavigator = createStackNavigator({
 //   //All the screen from the Screen2 will be indexed here
 //   Second: {
 //     screen: LinksScreen,
@@ -78,7 +76,7 @@
 // //For React Navigation 2.+ need to use StackNavigator instead createStackNavigator
 // //const FirstActivity_StackNavigator = StackNavigator({
 // //For React Navigation 3.+
-// const Screen3_StackNavigator = StackNavigator({
+// const Screen3_StackNavigator = createStackNavigator({
 //   //All the screen from the Screen3 will be indexed here
 //   Third: {
 //     screen: SettingsScreen,
@@ -96,7 +94,7 @@
 // //For React Navigation 2.+ need to use DrawerNavigator instead createDrawerNavigator
 // //const DrawerNavigatorExample = DrawerNavigator({
 // //For React Navigation 3.+
-// const DrawerNavigatorExample = DrawerNavigator({
+// const DrawerNavigatorExample = createDrawerNavigator({
 //   //Drawer Optons and indexing
 //   Screen1: {
 //     //Title
@@ -125,3 +123,4 @@
 // //export default App;
 // //For React Navigation 3.+
 // export default createAppContainer(DrawerNavigatorExample);
+// // export default DrawerNavigatorExample;
