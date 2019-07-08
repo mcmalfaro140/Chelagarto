@@ -6,11 +6,14 @@ import {
   createDrawerNavigator,
   createStackNavigator,
   createAppContainer,
+  SafeAreaView,
+  DrawerItems,
 } from 'react-navigation';
  
 import HomeScreen from './screens/HomeScreen';
 import LinksScreen from './screens/LinksScreen';
 import SettingsScreen from './screens/SettingsScreen';
+import { ScrollView } from 'react-native-gesture-handler';
  
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
@@ -85,7 +88,7 @@ const Screen2_StackNavigator = createStackNavigator({
   Second: {
     screen: LinksScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Links',
+      title: 'Groups',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerRight: <LogInStructure navigationProps={navigation} />,
       headerStyle: {
@@ -103,6 +106,57 @@ const Screen3_StackNavigator = createStackNavigator({
   Third: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
+      title: 'Contact',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: <LogInStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTintColor: '#fff',
+      
+    }),
+  },
+});
+
+const Screen4_StackNavigator = createStackNavigator({
+  //All the screen from the Screen3 will be indexed here
+  Third: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Franchise',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: <LogInStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTintColor: '#fff',
+      
+    }),
+  },
+});
+
+const Screen5_StackNavigator = createStackNavigator({
+  //All the screen from the Screen3 will be indexed here
+  Third: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Lenguage',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: <LogInStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: 'black',
+      },
+      headerTintColor: '#fff',
+      
+    }),
+  },
+});
+
+const Screen6_StackNavigator = createStackNavigator({
+  //All the screen from the Screen3 will be indexed here
+  Third: {
+    screen: SettingsScreen,
+    navigationOptions: ({ navigation }) => ({
       title: 'Settings',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerRight: <LogInStructure navigationProps={navigation} />,
@@ -114,7 +168,17 @@ const Screen3_StackNavigator = createStackNavigator({
     }),
   },
 });
- 
+
+const topImageComponent = (props) => (
+  <SafeAreaView style={{flex: 1}}>
+    <View style={{height:95, margin: 5, paddingLeft: 35, paddingTop: 35}}>
+      <Image source={require('./assets/images/logo_clh.png')} style={{resizeMode:'contain', padding: 5}}></Image>
+    </View>
+    <ScrollView>
+      <DrawerItems {...props} />
+    </ScrollView>
+  </SafeAreaView>
+)
 
 const DrawerNavigatorExample = createDrawerNavigator({
   //Drawer Optons and indexing
@@ -132,9 +196,9 @@ const DrawerNavigatorExample = createDrawerNavigator({
     //Title
     screen: Screen2_StackNavigator,
     navigationOptions: {
-      drawerLabel: 'Links',
+      drawerLabel: 'Groups',
       drawerIcon: () => (
-        <Ionicons name="ios-link" size={20}/>
+        <FontAwesome name="group" size={20}/>
       ) 
     },
   },
@@ -142,12 +206,47 @@ const DrawerNavigatorExample = createDrawerNavigator({
     //Title
     screen: Screen3_StackNavigator,
     navigationOptions: {
+      drawerLabel: 'Contact',
+      drawerIcon: () => (
+        <FontAwesome name="phone" size={20}/>
+      ) 
+    },
+  },
+  Screen4: {
+    //Title
+    screen: Screen4_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Franchise',
+      drawerIcon: () => (
+        <Ionicons name="md-business" size={20}/>
+      ) 
+    },
+  },
+  Screen5: {
+    //Title
+    screen: Screen5_StackNavigator,
+    navigationOptions: {
       drawerLabel: 'Settings',
       drawerIcon: () => (
         <Ionicons name="md-settings" size={20}/>
       ) 
     },
   },
+  Screen6: {
+    //Title
+    screen: Screen6_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Language',
+      drawerIcon: () => (
+        <FontAwesome name="language" size={20}/>
+      ) 
+    },
+  },
+  
+  
+  
+},{
+  contentComponent: topImageComponent
 });
 
 export default createAppContainer(DrawerNavigatorExample);
