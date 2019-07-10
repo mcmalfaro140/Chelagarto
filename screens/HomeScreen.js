@@ -8,9 +8,13 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
 
+import { StackNavigator } from 'react-navigation'
+
 import { MonoText } from '../components/StyledText';
+import LinksScreen from './LinksScreen';
 
 export default function HomeScreen() {
   return (
@@ -24,12 +28,26 @@ export default function HomeScreen() {
             style={styles.welcomeImage}
           />
         </View> 
+        {/* <Button
+        title="Go to Jane's profile"
+        onPress={() => this.props.navigation.push('Details')}
+      /> */}
         </ScrollView>
       </View>
   );
 }
 
-
+// const RootStack = StackNavigator(
+//   {
+//     Home: {
+//       screen: HomeScreen,
+//     },
+//     Details: {
+//       screen: LinksScreen,
+//     },
+//   },
+  
+// );
 
 function DevelopmentModeNotice() {
   if (__DEV__) {
