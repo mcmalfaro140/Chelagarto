@@ -5,13 +5,15 @@ import {
   Platform,
   ScrollView,
   StyleSheet,
+  Text,
+  TouchableOpacity,
   View,
   Button,
 } from 'react-native';
 
+import { StackNavigator } from 'react-navigation'
 
-import ScrollViewMain from './ScrollViewMain.js';
-
+import { MonoText } from '../components/StyledText';
 
 
 export default function HomeScreen() {
@@ -26,35 +28,22 @@ export default function HomeScreen() {
             style={styles.welcomeImage}
           />
         </View>
-
-        < ScrollViewMain />
-
-       
-
-
-
+        {/* <Button
+        title="Go to Jane's profile"
+        onPress={() => this.props.navigation.push('Details')}
+      /> */}
       </ScrollView>
     </View>
   );
 }
 
-// const RootStack = StackNavigator(
-//   {
-//     Home: {
-//       screen: HomeScreen,
-//     },
-//     Details: {
-//       screen: LinksScreen,
-//     },
-//   },
 
-// );
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
   },
   developmentModeText: {
     marginBottom: 20,

@@ -9,13 +9,16 @@ import {
   SafeAreaView,
   DrawerItems,
 } from 'react-navigation';
- 
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
- 
+
+import HomeScreen from '../screens/HomeScreen';
+import ContactScreen from '../screens/ContactScreen';
+import GroupsScreen from '../screens/GroupsScreen';
+import FranchiseScreen from '../screens/FranchiseScreen';
+import SettingsScreen from '../screens/SettingsScreen';
+
+
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -25,17 +28,17 @@ class NavigationDrawerStructure extends Component {
   render() {
     return (
       <View style={{ flexDirection: 'row', marginLeft: 15 }}>
-      <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
-        <Ionicons
-          name= "md-menu"
-          color = 'white'
-          size= {28}
-                    
-        />
-        
-      </TouchableOpacity>
-     
-    </View>
+        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
+          <Ionicons
+            name="md-menu"
+            color='white'
+            size={28}
+
+          />
+
+        </TouchableOpacity>
+
+      </View>
     );
   }
 }
@@ -49,17 +52,17 @@ class LogInStructure extends Component {
   render() {
     return (
       <View style={{ flexDirection: 'row', marginRight: 15 }}>
-      <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
-        <FontAwesome
-          name = "user-circle-o"
-          color="white"
-          size = {28}
-          
-        />
-        
-      </TouchableOpacity>
+        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
+          <FontAwesome
+            name="user-circle-o"
+            color="white"
+            size={28}
 
-    </View>
+          />
+
+        </TouchableOpacity>
+
+      </View>
     );
   }
 }
@@ -76,36 +79,36 @@ const FirstActivity_StackNavigator = createStackNavigator({
       headerStyle: {
         backgroundColor: 'black',
         textAlig: 'center'
-        
+
       },
       headerTintColor: '#fff',
     }),
   },
 });
- 
+
 
 const Screen2_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   Second: {
-    screen: LinksScreen,
+    screen: GroupsScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Groups',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerRight: <LogInStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: 'black',
-        
+
       },
       headerTintColor: '#fff',
     }),
   },
 });
- 
+
 
 const Screen3_StackNavigator = createStackNavigator({
   //All the screen from the Screen3 will be indexed here
   Third: {
-    screen: SettingsScreen,
+    screen: ContactScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Contact',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -114,7 +117,7 @@ const Screen3_StackNavigator = createStackNavigator({
         backgroundColor: 'black',
       },
       headerTintColor: '#fff',
-      
+
     }),
   },
 });
@@ -122,7 +125,7 @@ const Screen3_StackNavigator = createStackNavigator({
 const Screen4_StackNavigator = createStackNavigator({
   //All the screen from the Screen4 will be indexed here
   Third: {
-    screen: SettingsScreen,
+    screen: FranchiseScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Franchise',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -131,7 +134,7 @@ const Screen4_StackNavigator = createStackNavigator({
         backgroundColor: 'black',
       },
       headerTintColor: '#fff',
-      
+
     }),
   },
 });
@@ -141,14 +144,14 @@ const Screen5_StackNavigator = createStackNavigator({
   Third: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
-      title: 'Lenguage',
+      title: 'Settings',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerRight: <LogInStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: 'black',
       },
       headerTintColor: '#fff',
-      
+
     }),
   },
 });
@@ -165,45 +168,45 @@ const Screen6_StackNavigator = createStackNavigator({
         backgroundColor: 'black',
       },
       headerTintColor: '#fff',
-      
+
     }),
   },
 });
 
 //Layout for the menu
 const menuLayout = (props) => (
-  
-  <SafeAreaView style={{flex: 1} }>
-    <LinearGradient colors={['#FDD819', '#E80505']} style={{flex: 1}}>
-    <View style={{height:95, margin: 5, paddingLeft: 35, paddingTop: 75, paddingBottom:20}}>
-      <Image source={require('../assets/images/logo_clh.png')} style={{resizeMode:'contain', padding: 5}}></Image>
-      <Text style={{color:'white' , fontSize: 25}}>Let's Travel More</Text>
-   </View>
-    
-    <ScrollView style={{paddingTop: 100}}>
-      <DrawerItems {...props} />
-    </ScrollView>
-    <View style={{flexDirection: 'row', alignSelf: 'center'}}>
-      <Image source={require('../assets/images/icon_facebook.png')} style={{margin: 10}}></Image>
-      <Image source={require('../assets/images/icon_instagram.png')} style={{margin: 10}}></Image>
-      <Image source={require('../assets/images/icon_pinterest.png')} style={{margin: 10}}></Image>
-   </View>
+
+  <SafeAreaView style={{ flex: 1 }}>
+    <LinearGradient colors={['#FDD819', '#E80505']} style={{ flex: 1 }}>
+      <View style={{ height: 95, margin: 5, paddingLeft: 35, paddingTop: 75, paddingBottom: 20 }}>
+        <Image source={require('../assets/images/logo_clh.png')} style={{ resizeMode: 'contain', padding: 5 }}></Image>
+        <Text style={{ color: 'white', fontSize: 25 }}>Let's Travel More</Text>
+      </View>
+
+      <ScrollView style={{ paddingTop: 100 }}>
+        <DrawerItems {...props} />
+      </ScrollView>
+      <View style={{ flexDirection: 'row', alignSelf: 'center' }}>
+        <Image source={require('../assets/images/icon_facebook.png')} style={{ margin: 10 }}></Image>
+        <Image source={require('../assets/images/icon_instagram.png')} style={{ margin: 10 }}></Image>
+        <Image source={require('../assets/images/icon_pinterest.png')} style={{ margin: 10 }}></Image>
+      </View>
     </LinearGradient>
   </SafeAreaView>
-  
+
 )
 
-//creates the drawer and adds elements
+//creates the drawer and adds the icon elements
 const DrawerNavigator = createDrawerNavigator({
-  //Drawer Optons and indexing
+  //Drawer Options and indexing
   Screen1: {
     screen: FirstActivity_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Home',
       drawerIcon: () => (
-        <Ionicons name="ios-home" size={20}/>
-      ) 
-      
+        <Ionicons name="ios-home" size={20} />
+      )
+
     },
   },
   Screen2: {
@@ -212,8 +215,8 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: 'Groups',
       drawerIcon: () => (
-        <FontAwesome name="group" size={20}/>
-      ) 
+        <FontAwesome name="group" size={20} />
+      )
     },
   },
   Screen3: {
@@ -222,8 +225,8 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: 'Contact',
       drawerIcon: () => (
-        <FontAwesome name="phone" size={20}/>
-      ) 
+        <FontAwesome name="phone" size={20} />
+      )
     },
   },
   Screen4: {
@@ -232,8 +235,8 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: 'Franchise',
       drawerIcon: () => (
-        <Ionicons name="md-business" size={20}/>
-      ) 
+        <Ionicons name="md-business" size={20} />
+      )
     },
   },
   Screen5: {
@@ -242,8 +245,8 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: 'Settings',
       drawerIcon: () => (
-        <Ionicons name="md-settings" size={20}/>
-      ) 
+        <Ionicons name="md-settings" size={20} />
+      )
     },
   },
   Screen6: {
@@ -252,23 +255,23 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: 'Language',
       drawerIcon: () => (
-        <FontAwesome name="language" size={20}/>
-      ) 
+        <FontAwesome name="language" size={20} />
+      )
     },
   },
-  
-  
-  
-},{
-  //It will create the layout of me drawer menu
-  contentComponent: menuLayout
-});
+
+
+
+}, {
+    //It will create the layout of me drawer menu
+    contentComponent: menuLayout
+  });
 
 // export default createAppContainer(DrawerNavigator);
 const AppContainer = createAppContainer(DrawerNavigator);
 
 export default class AppNavigator extends React.Component {
-    render() {
-      return <AppContainer />;
-    }
+  render() {
+    return <AppContainer />;
   }
+}

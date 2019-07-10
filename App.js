@@ -7,6 +7,10 @@ import { Ionicons } from '@expo/vector-icons';
 
 import AppNavigator from './navigation/AppNavigator';
 
+
+
+
+
 export default function App(props) {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
 
@@ -22,9 +26,9 @@ export default function App(props) {
     return (
       <View style={styles.container}>
         {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-        <AppNavigator /> 
-          
-        </View>
+        <AppNavigator />
+
+      </View>
     );
   }
 }
@@ -32,8 +36,6 @@ export default function App(props) {
 async function loadResourcesAsync() {
   await Promise.all([
     Asset.loadAsync([
-      require('./assets/images/robot-dev.png'),
-      require('./assets/images/robot-prod.png'),
       require('./assets/images/cheLogo.png'),
       require('./assets/images/logo_CheLagarto.png'),
     ]),
