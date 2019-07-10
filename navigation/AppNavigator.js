@@ -8,11 +8,13 @@ import {
   createAppContainer,
   SafeAreaView,
   DrawerItems,
+  
 } from 'react-navigation';
  
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import Profile from '../screens/Profile'
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
  
@@ -41,15 +43,11 @@ class NavigationDrawerStructure extends Component {
 }
 
 class LogInStructure extends Component {
-  //Structure for the navigatin Drawer
-  toggleDrawer = () => {
-    //Props to open/close the drawer
-    this.props.navigationProps.toggleDrawer();
-  };
   render() {
+    
     return (
       <View style={{ flexDirection: 'row', marginRight: 15 }}>
-      <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
+      <TouchableOpacity onPress={ () => this.props.navigationProps.navigate('Login') }>
         <FontAwesome
           name = "user-circle-o"
           color="white"
@@ -64,9 +62,7 @@ class LogInStructure extends Component {
   }
 }
 
-
-
-const FirstActivity_StackNavigator = createStackNavigator({
+const Home_StackNavigator = createStackNavigator({
   First: {
     screen: HomeScreen,
     navigationOptions: ({ navigation }) => ({
@@ -84,7 +80,7 @@ const FirstActivity_StackNavigator = createStackNavigator({
 });
  
 
-const Screen2_StackNavigator = createStackNavigator({
+const Groups_StackNavigator = createStackNavigator({
   //All the screen from the Screen2 will be indexed here
   Second: {
     screen: LinksScreen,
@@ -102,7 +98,7 @@ const Screen2_StackNavigator = createStackNavigator({
 });
  
 
-const Screen3_StackNavigator = createStackNavigator({
+const Contact_StackNavigator = createStackNavigator({
   //All the screen from the Screen3 will be indexed here
   Third: {
     screen: SettingsScreen,
@@ -119,7 +115,7 @@ const Screen3_StackNavigator = createStackNavigator({
   },
 });
 
-const Screen4_StackNavigator = createStackNavigator({
+const Franchise_StackNavigator = createStackNavigator({
   //All the screen from the Screen4 will be indexed here
   Third: {
     screen: SettingsScreen,
@@ -136,7 +132,7 @@ const Screen4_StackNavigator = createStackNavigator({
   },
 });
 
-const Screen5_StackNavigator = createStackNavigator({
+const Language_StackNavigator = createStackNavigator({
   //All the screen from the Screen5 will be indexed here
   Third: {
     screen: SettingsScreen,
@@ -153,7 +149,7 @@ const Screen5_StackNavigator = createStackNavigator({
   },
 });
 
-const Screen6_StackNavigator = createStackNavigator({
+const Settings_StackNavigator = createStackNavigator({
   //All the screen from the Screen6 will be indexed here
   Third: {
     screen: SettingsScreen,
@@ -163,6 +159,24 @@ const Screen6_StackNavigator = createStackNavigator({
       headerRight: <LogInStructure navigationProps={navigation} />,
       headerStyle: {
         backgroundColor: 'black',
+      },
+      headerTintColor: '#fff',
+      
+    }),
+  },
+});
+
+const Login_StackNavigator = createStackNavigator({
+  First: {
+    screen: Profile,
+    navigationOptions: ({ navigation }) => ({
+      title: 'Sign in',
+      headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
+      headerRight: <LogInStructure navigationProps={navigation} />,
+      headerStyle: {
+        backgroundColor: 'black',
+        textAlig: 'center'
+        
       },
       headerTintColor: '#fff',
       
@@ -196,8 +210,8 @@ const menuLayout = (props) => (
 //creates the drawer and adds elements
 const DrawerNavigator = createDrawerNavigator({
   //Drawer Optons and indexing
-  Screen1: {
-    screen: FirstActivity_StackNavigator,
+  Home: {
+    screen: Home_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Home',
       drawerIcon: () => (
@@ -206,9 +220,9 @@ const DrawerNavigator = createDrawerNavigator({
       
     },
   },
-  Screen2: {
+  Groups: {
     //Title
-    screen: Screen2_StackNavigator,
+    screen: Groups_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Groups',
       drawerIcon: () => (
@@ -216,9 +230,9 @@ const DrawerNavigator = createDrawerNavigator({
       ) 
     },
   },
-  Screen3: {
+  Contact: {
     //Title
-    screen: Screen3_StackNavigator,
+    screen: Contact_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Contact',
       drawerIcon: () => (
@@ -226,9 +240,9 @@ const DrawerNavigator = createDrawerNavigator({
       ) 
     },
   },
-  Screen4: {
+  Franchise: {
     //Title
-    screen: Screen4_StackNavigator,
+    screen: Franchise_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Franchise',
       drawerIcon: () => (
@@ -236,9 +250,9 @@ const DrawerNavigator = createDrawerNavigator({
       ) 
     },
   },
-  Screen5: {
+  Language: {
     //Title
-    screen: Screen5_StackNavigator,
+    screen: Language_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Settings',
       drawerIcon: () => (
@@ -246,15 +260,27 @@ const DrawerNavigator = createDrawerNavigator({
       ) 
     },
   },
-  Screen6: {
+  Settings: {
     //Title
-    screen: Screen6_StackNavigator,
+    screen: Settings_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Language',
       drawerIcon: () => (
         <FontAwesome name="language" size={20}/>
       ) 
     },
+  },
+  Login: {
+    //Title
+    screen: Login_StackNavigator,
+    navigationOptions: {
+      drawerLabel: 'Sign up/Log in ',
+      drawerIcon: () => (
+        <FontAwesome name = "user-circle-o" size = {20} />
+      ) 
+      
+    },
+    
   },
   
   
@@ -264,7 +290,6 @@ const DrawerNavigator = createDrawerNavigator({
   contentComponent: menuLayout
 });
 
-// export default createAppContainer(DrawerNavigator);
 const AppContainer = createAppContainer(DrawerNavigator);
 
 export default class AppNavigator extends React.Component {
