@@ -170,16 +170,15 @@ const Login_StackNavigator = createStackNavigator({
   First: {
     screen: Profile,
     navigationOptions: ({ navigation }) => ({
-      title: 'Sign in',
+      title: '',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
-      headerRight: <LogInStructure navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: 'black',
-        textAlig: 'center'
-        
-      },
-      headerTintColor: '#fff',
-      
+      // headerStyle:{ 
+      //   position: 'absolute', 
+      //   backgroundColor: 'transparent', 
+      //   zIndex: 100
+      // },
+      headerTransparent: true,
+            
     }),
   },
 });

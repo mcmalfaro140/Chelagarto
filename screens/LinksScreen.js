@@ -15,8 +15,6 @@ export default function LinksScreen() {
 }
 
 
-
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
