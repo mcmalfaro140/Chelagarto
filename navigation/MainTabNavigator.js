@@ -2,24 +2,31 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
-import TabBarIcon from '../components/TabBarIcon';
 
+import { Ionicons } from '@expo/vector-icons';
+import { View, Image, TouchableOpacity, Text } from 'react-native';
+import {
+    createDrawerNavigator,
+    createAppContainer,
+    SafeAreaView,
+    DrawerItems,
+} from 'react-navigation';
+import { ScrollView } from 'react-native-gesture-handler';
+import { LinearGradient } from 'expo-linear-gradient';
+
+
+
+import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ContactScreen from '../screens/ContactScreen';
 import GroupsScreen from '../screens/GroupsScreen';
 import SignInScreen from '../screens/SignInScreen';
 import FranchiseScreen from '../screens/FranchiseScreen';
-
-
 import SettingsScreen from '../screens/SettingsScreen';
 
-const config = Platform.select({
-    web: { headerMode: 'screen' },
-    default: {},
-});
 
 
-//Home 
+
 const HomeStack = createStackNavigator(
     {
         Home: HomeScreen,

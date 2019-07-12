@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesome } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { View, Image, TouchableOpacity, Text } from 'react-native';
+
 import {
   createDrawerNavigator,
   createStackNavigator,

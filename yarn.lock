@@ -854,7 +854,7 @@
   dependencies:
     react-native-platform-touchable "^1.1.1"
 
-"@expo/vector-icons@^10.0.1":
+"@expo/vector-icons@^10.0.1", "@expo/vector-icons@^10.0.3":
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/@expo/vector-icons/-/vector-icons-10.0.3.tgz#9dec25cf6c29871f2bb1fe932029878c221f1f75"
   integrity sha512-3iTdjnBlleddgcRGZV9JQXi+WRL3n2BehW48JOFv/mydx8BjHD0QAcYLOXGuwrcRKR0AIRhHxFQwKVyQ4YcYLA==
@@ -2666,7 +2666,7 @@ expo-file-system@~5.0.1:
   dependencies:
     uuid-js "^0.7.5"
 
-expo-font@^5.0.0, expo-font@~5.0.1:
+expo-font@~5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/expo-font/-/expo-font-5.0.1.tgz#b3174134efd0ce3382db3a6c282147cba8bee203"
   integrity sha512-fa/z31lLi1ut6IGTf9/Kvw9KAlwSGQaBkuunuqjrW2ephqiXlHTeOOsaqKMirtmiqgsKOJysdlYUH1Aw03Y2bg==
@@ -2825,7 +2825,7 @@ expo-web-browser@^5.0.0, expo-web-browser@~5.0.3:
   resolved "https://registry.yarnpkg.com/expo-web-browser/-/expo-web-browser-5.0.3.tgz#c382358ece64a4fad5a5996795faea3446072298"
   integrity sha512-Etue3QfBki4shFChsVd3Of3xvY7KsXoNINKvckiRCmcCjOC5bGiZ+Grhf70YEHVUB2bEcAUeZhC9Tg0Ip2tdEQ==
 
-expo@^33.0.0:
+expo@^33.0.7:
   version "33.0.7"
   resolved "https://registry.yarnpkg.com/expo/-/expo-33.0.7.tgz#e121044c04120ad6d74df6b0099d5d8194244349"
   integrity sha512-+mDBQ/KeJnDWg8bUoiuP/OpMXwUYaypgHMDPgH7+AXw8OJuedMhJlH+7UEX2OB+UePnWPcQER411sC7m819pag==
