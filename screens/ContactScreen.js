@@ -14,6 +14,7 @@ import {
 import { StackNavigator } from 'react-navigation'
 
 import { MonoText } from '../components/StyledText';
+import ContactComponent from '../components/ContactComponent';
 
 
 
@@ -30,10 +31,11 @@ export default function HomeScreen() {
                         style={styles.welcomeImage}
                     />
                 </View>
-                {/* <Button
-        title="Go to Jane's profile"
-        onPress={() => this.props.navigation.push('Details')}
-      /> */}
+                <View>
+                    <ContactComponent/>
+                </View>
+
+
             </ScrollView>
         </View>
     );
@@ -44,7 +46,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'black',
+        backgroundColor: 'white',
     },
     developmentModeText: {
         marginBottom: 20,

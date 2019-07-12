@@ -1,4 +1,3 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
@@ -6,14 +5,9 @@ import {
   ScrollView,
   StyleSheet,
   View,
-  Button,
 } from 'react-native';
-
-
-
-
-
-import ScrollViewMain from './ScrollViewMain.js';
+import CountriesList from '../components/CountriesList';
+import Calendar from '../components/Calendar';
 
 
 
@@ -30,11 +24,8 @@ export default function HomeScreen() {
           />
         </View>
 
-        < ScrollViewMain />
-
-       
-
-
+        < CountriesList />
+        <Calendar />
 
       </ScrollView>
     </View>
