@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet, Button, ScrollView } from 'react-native';
+import { View, StyleSheet, Button, ScrollView } from 'react-native';
 import { Dropdown } from 'react-native-material-dropdown';
+//import { DatePicker } from 'react-native-datepicker-modal';
 
 
 class ScrollViewMain extends Component {
@@ -20,6 +21,9 @@ class ScrollViewMain extends Component {
                label='Choose a City or Country'
                data={cities}
             />
+            <View>
+
+            </View>
             <View style={{ width: 150, alignSelf: 'center' }}>
                <Button title='Search'>Search</Button>
             </View>
