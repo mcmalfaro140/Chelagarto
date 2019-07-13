@@ -11,14 +11,8 @@ import {
   DrawerItems,
   
 } from 'react-navigation';
-<<<<<<< HEAD
  
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
-import Profile from '../screens/Profile'
-=======
->>>>>>> 3e112e43e0e6fe90f3cc6b5b7ee7e360c7d94a72
+
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
 
@@ -27,6 +21,8 @@ import ContactScreen from '../screens/ContactScreen';
 import GroupsScreen from '../screens/GroupsScreen';
 import FranchiseScreen from '../screens/FranchiseScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import Sigin from '../screens/SignInScreen'
+
 
 
 class NavigationDrawerStructure extends Component {
@@ -58,7 +54,6 @@ class LogInStructure extends Component {
     
     return (
       <View style={{ flexDirection: 'row', marginRight: 15 }}>
-<<<<<<< HEAD
       <TouchableOpacity onPress={ () => this.props.navigationProps.navigate('Login') }>
         <FontAwesome
           name = "user-circle-o"
@@ -70,19 +65,6 @@ class LogInStructure extends Component {
       </TouchableOpacity>
 
     </View>
-=======
-        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
-          <FontAwesome
-            name="user-circle-o"
-            color="white"
-            size={28}
-
-          />
-
-        </TouchableOpacity>
-
-      </View>
->>>>>>> 3e112e43e0e6fe90f3cc6b5b7ee7e360c7d94a72
     );
   }
 }
@@ -193,7 +175,7 @@ const Settings_StackNavigator = createStackNavigator({
 
 const Login_StackNavigator = createStackNavigator({
   First: {
-    screen: Profile,
+    screen: Sigin,
     navigationOptions: ({ navigation }) => ({
       title: '',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
@@ -233,15 +215,9 @@ const menuLayout = (props) => (
 
 //creates the drawer and adds the icon elements
 const DrawerNavigator = createDrawerNavigator({
-<<<<<<< HEAD
   //Drawer Optons and indexing
   Home: {
     screen: Home_StackNavigator,
-=======
-  //Drawer Options and indexing
-  Screen1: {
-    screen: FirstActivity_StackNavigator,
->>>>>>> 3e112e43e0e6fe90f3cc6b5b7ee7e360c7d94a72
     navigationOptions: {
       drawerLabel: 'Home',
       drawerIcon: () => (
@@ -300,7 +276,6 @@ const DrawerNavigator = createDrawerNavigator({
       )
     },
   },
-<<<<<<< HEAD
   Login: {
     //Title
     screen: Login_StackNavigator,
@@ -320,15 +295,6 @@ const DrawerNavigator = createDrawerNavigator({
   //It will create the layout of me drawer menu
   contentComponent: menuLayout
 });
-=======
-
-
-
-}, {
-    //It will create the layout of me drawer menu
-    contentComponent: menuLayout
-  });
->>>>>>> 3e112e43e0e6fe90f3cc6b5b7ee7e360c7d94a72
 
 const AppContainer = createAppContainer(DrawerNavigator);
 

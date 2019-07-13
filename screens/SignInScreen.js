@@ -1,134 +1,84 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
-import {
-  Image,
-  Platform,
-  ScrollView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Button,
-} from 'react-native';
-
-import { StackNavigator } from 'react-navigation'
-
-import { MonoText } from '../components/StyledText';
+import { View, Image, Text, TextInput, Button, ScrollView, StyleSheet, KeyboardAvoidingView } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 
-
-
-
-
-export default function HomeScreen() {
+export default function LinksScreen() {
   return (
-    <View style={styles.container}>
-      <ScrollView
-        style={styles.container}
-        contentContainerStyle={styles.contentContainer}>
-        <View style={styles.welcomeContainer}>
-          <Image
-            source={require('../assets/images/cheLogo.png')}
-            style={styles.welcomeImage}
-          />
-        </View>
-        {/* <Button
-        title="Go to Jane's profile"
-        onPress={() => this.props.navigation.push('Details')}
-      /> */}
-      </ScrollView>
-    </View>
-  );
-}
+    
+        <LinearGradient colors={['#55D284', '#F2CF07']} style={{flex: 1 }}>
+            <KeyboardAvoidingView  style={styles.containerkey} behavior="padding" enabled>
+            <View style={styles.container}>
+                <Image
+                source={require('../assets/images/logo_CheLagarto.png')}
+                style={styles.logo}
+                />
+            </View>
+            <Text style={{fontSize: 40, margin: 5, fontWeight: '600', color: 'black', alignSelf: 'center'}}>Sign In</Text>
+            <View style={styles.inputContainer}>
+                <View style={{flexDirection: 'row'}}>
+                    <FontAwesome name='user' size={28} style={{alignSelf: 'center'}}></FontAwesome>
+                    <TextInput placeholder=' Username' style={styles.inputText}></TextInput>
+                </View>
+                <View style={{flexDirection: 'row'}}>
+                    <Ionicons name='ios-key' size={28} style={{alignSelf: 'center'}}></Ionicons>
+                    <TextInput secureTextEntry={true} placeholder=' Password' style={styles.inputText}></TextInput>
+                </View>
+                <View style={{alignSelf: 'center', marginTop: 20, width: 150}}>
+                    <Button title='Log In'>Log in</Button>
+                </View>
+                <Text style={{margin: 20, alignSelf: 'center'}}>Don't have an account?<Text style={{color: 'blue'}}> Sign Up</Text></Text>
+            </View>
+            </KeyboardAvoidingView>
+        </LinearGradient>
+   
+  )}
 
-
-
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'black',
-  },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
+  const styles = StyleSheet.create({
+    containerkey: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
       },
-      android: {
-        elevation: 20,
+      container: {
+        // backgroundColor: 'white', 
+        width: 150, 
+        alignSelf: "center", 
+        marginTop: 5, 
+        borderRadius: 5,
+        
+               
+        
       },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});
+      logo: {
+        resizeMode: 'contain', 
+        width: 150, 
+        height: 130, 
+        alignSelf:"center",
+      },
+      inputContainer: {
+        alignSelf:"center", 
+        marginTop: 20, 
+        backgroundColor: 'white', 
+        borderRadius: 5 , 
+        height:300, 
+        width: 300, 
+        borderWidth: 0.3, 
+        borderColor: '#130CB7',
+        padding: 20,
+        
+        
+      },
+      inputText : {
+        margin: 20, 
+        borderBottomWidth: 0.7,
+        borderColor: 'silver', 
+        width: 200,
+        height: 40,
+        fontSize:22,
+        
+        
+      }
+      
+  })
