@@ -1,13 +1,22 @@
+import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
   Image,
   Platform,
   ScrollView,
   StyleSheet,
+  Text,
+  TouchableOpacity,
   View,
+  Button,
 } from 'react-native';
-import CountriesList from '../components/CountriesList';
-import Calendar from '../components/Calendar';
+
+import { StackNavigator } from 'react-navigation'
+
+import { MonoText } from '../components/StyledText';
+
+
+
 
 
 
@@ -23,32 +32,22 @@ export default function HomeScreen() {
             style={styles.welcomeImage}
           />
         </View>
-
-        < CountriesList />
-        <Calendar />
-
+        {/* <Button
+        title="Go to Jane's profile"
+        onPress={() => this.props.navigation.push('Details')}
+      /> */}
       </ScrollView>
     </View>
   );
 }
 
-// const RootStack = StackNavigator(
-//   {
-//     Home: {
-//       screen: HomeScreen,
-//     },
-//     Details: {
-//       screen: LinksScreen,
-//     },
-//   },
 
-// );
 
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
   },
   developmentModeText: {
     marginBottom: 20,
