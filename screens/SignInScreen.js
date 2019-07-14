@@ -4,7 +4,7 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 
 
-export default function LinksScreen() {
+export default function SignInScreen() {
   return (
     
         <LinearGradient colors={['#55D284', '#F2CF07']} style={{flex: 1 }}>

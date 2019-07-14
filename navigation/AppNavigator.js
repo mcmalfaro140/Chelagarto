@@ -217,7 +217,7 @@ const menuLayout = (props) => (
 const DrawerNavigator = createDrawerNavigator({
   //Drawer Optons and indexing
   Home: {
-    screen: Home_StackNavigator,
+    screen: Contact_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Home',
       drawerIcon: () => (
