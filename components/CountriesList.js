@@ -14,31 +14,42 @@ class CountriesList extends Component {
    }
 
    render() {
-      var data = [["Argentina", "Chile", "Brazil", "Paraguay"]];
+      // var data = [["Argentina", "Chile", "Brazil", "Paraguay", "Misael"]];
+      let data = [{
+         value: 'Argentina',
+       }, {
+         value: 'Chile',
+       }, {
+         value: 'Brazil',
+       },{
+         value: 'Paraguay',
+       }, {
+         value: 'Misael',
+       },{
+         value: 'Veronica',
+       }, {
+         value: 'Brazil',
+       }];
       return (
-         <View >
-            <View style={{ height: 14 }} />
-            <Text>
-               Choose a destination
-            </Text>
-            <DropdownMenu
-
-               bgColor={'white'}
-               tintColor={'#666666'}
-               activityTintColor={'green'}
-
-               handler={(selection, row) => this.setState({ text: data[selection][row] })}
-               data={data}
-            >
-
-               <View style={{ flex: 1 }}>
-                  <Text>
-                     You selected: {this.state.text}
-                  </Text>
-               </View>
-
-            </DropdownMenu>
+         <View style={{flex: 1}}>
+            
+            <Dropdown  
+                  style={styles.container}
+                  label='Favorite Fruit'
+                  // bgColor={'white'}
+                  // tintColor={'#666666'}
+                  // activityTintColor={'green'}
+                   
+                  // handler={(selection, row) => this.setState({ text: data[selection][row] })}
+                  data={data}
+               >
+               </Dropdown>
          </View>
+            
+
+            
+           
+        
       );
    }
 
@@ -47,18 +58,12 @@ class CountriesList extends Component {
 }
 export default CountriesList
 
-
-
-
 const styles = StyleSheet.create({
-   item: {
-      flexDirection: 'row',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: 30,
-      margin: 2,
-      borderColor: '#2a4944',
-      borderWidth: 1,
-      backgroundColor: '#d2f7f1'
+   container: {
+      height: 100,
+      backgroundColor: 'yellow',
+      borderRadius: 10,
+      borderColor: 'white',
+      borderWidth: 5,
    }
 })

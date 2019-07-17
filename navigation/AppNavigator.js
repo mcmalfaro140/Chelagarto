@@ -76,11 +76,12 @@ const Home_StackNavigator = createStackNavigator({
       title: '',
       headerLeft: <NavigationDrawerStructure navigationProps={navigation} />,
       headerRight: <LogInStructure navigationProps={navigation} />,
-      headerStyle: {
-        backgroundColor: 'black',
-        textAlig: 'center'
+      // headerStyle: {
+      //   backgroundColor: 'black',
+      //   textAlig: 'center'
 
-      },
+      // },
+      headerTransparent: true,
       headerTintColor: '#fff',
     }),
   },
