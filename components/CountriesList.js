@@ -31,11 +31,11 @@ class CountriesList extends Component {
          value: 'Brazil',
        }];
       return (
-         <View style={{flex: 1}}>
+         <View style={{flex: 1,}}>
             
             <Dropdown  
                   style={styles.container}
-                  label='Favorite Fruit'
+                  
                   // bgColor={'white'}
                   // tintColor={'#666666'}
                   // activityTintColor={'green'}
@@ -60,10 +60,19 @@ export default CountriesList
 
 const styles = StyleSheet.create({
    container: {
-      height: 100,
-      backgroundColor: 'yellow',
+      height: '130%',
+      width: '100%',
+      backgroundColor: 'rgba(255, 255, 255, .75)',
+      margin: 0,
+      padding: 0,
+      marginTop: -30,
       borderRadius: 10,
-      borderColor: 'white',
-      borderWidth: 5,
+      textAlign: 'center',
+      fontSize: 20,
+      fontWeight: 'bold',
+      marginEnd: '-10%',
+      
+      
+     
    }
 })

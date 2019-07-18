@@ -6,7 +6,10 @@ class Calendar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isDateTimePickerVisible: false
+            isDateTimePickerVisible: false,
+            startDate: 'Start Date:',
+            endDate: 'End Date:'
+            
         };
     }
 
@@ -18,8 +21,13 @@ class Calendar extends Component {
         this.setState({ isDateTimePickerVisible: false });
     };
     //this shows the date picked on the console. have to be change to main screen
-    handleDatePicked = date => {
-        console.log("A date has been picked:  ", date);
+    handleDatePickedStart = date => {
+        
+        this.state.endDate = date.toDateString();
+        this.hideDateTimePicker();
+    };
+    handleDatePickedEnds = date => {
+        this.state.startDate = date.toDateString(),
         this.hideDateTimePicker();
     };
 
@@ -28,33 +36,29 @@ class Calendar extends Component {
     }
 
     render() {
+        
         return (
-            <View>
-                <View style={styles.alternativeLayoutButtonContainer}>
-                    <View style={styles.buttonContainer}>
-                        <Button title="Start date:" onPress={this.showDateTimePicker} />
+            <View style={styles.alternativeLayoutButtonContainer}>
+               
+                    <View style={styles.buttonContainer} >
+                        <Button title={this.state.startDate} onPress={this.showDateTimePicker} />
                         <DateTimePicker
                             isVisible={this.state.isDateTimePickerVisible}
-                            onConfirm={this.handleDatePicked}
+                            onConfirm={this.handleDatePickedStart}
                             onCancel={this.hideDateTimePicker}
                         />
                     </View>
 
 
                     <View style={styles.buttonContainer}>
-                        <Button title="End date:" onPress={this.showDateTimePicker} />
+                        <Button title={this.state.endDate} onPress={this.showDateTimePicker} />
                         <DateTimePicker
                             isVisible={this.state.isDateTimePickerVisible}
-                            onConfirm={this.handleDatePicked}
+                            onConfirm={this.handleDatePickedEnds}
                             onCancel={this.hideDateTimePicker}
                         />
 
                     </View >
-
-                </View>
-                <View style={styles.buttonContainer}>
-                    <Button title="search" onPress={this._onPressButton} />
-                </View>
 
             </View>
 
@@ -69,14 +73,15 @@ export default Calendar
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        justifyContent: 'center',
+        marginTop: '0%',
+        backgroundColor: 'white'
     },
     buttonContainer: {
-        margin: 10
+        margin: 5,
+        
     },
     alternativeLayoutButtonContainer: {
-        margin: 20,
+        margin: '0%',
         flexDirection: 'row',
         justifyContent: 'space-between'
     }
