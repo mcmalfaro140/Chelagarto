@@ -25,6 +25,7 @@ import Sigin from '../screens/SignInScreen'
 
 
 
+
 class NavigationDrawerStructure extends Component {
   //Structure for the navigatin Drawer
   toggleDrawer = () => {
@@ -125,7 +126,7 @@ const Contact_StackNavigator = createStackNavigator({
 
 const Franchise_StackNavigator = createStackNavigator({
   //All the screen from the Screen4 will be indexed here
-  Third: {
+  Fourth: {
     screen: FranchiseScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Franchise',
@@ -142,7 +143,7 @@ const Franchise_StackNavigator = createStackNavigator({
 
 const Language_StackNavigator = createStackNavigator({
   //All the screen from the Screen5 will be indexed here
-  Third: {
+  Fifth: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Settings',
@@ -159,7 +160,7 @@ const Language_StackNavigator = createStackNavigator({
 
 const Settings_StackNavigator = createStackNavigator({
   //All the screen from the Screen6 will be indexed here
-  Third: {
+  Sixth: {
     screen: SettingsScreen,
     navigationOptions: ({ navigation }) => ({
       title: 'Settings',
@@ -175,7 +176,7 @@ const Settings_StackNavigator = createStackNavigator({
 });
 
 const Login_StackNavigator = createStackNavigator({
-  First: {
+  Seventh: {
     screen: Sigin,
     navigationOptions: ({ navigation }) => ({
       title: '',

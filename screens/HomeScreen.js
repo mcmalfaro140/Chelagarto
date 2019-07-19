@@ -1,21 +1,29 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {
   Image,
-  Platform,
-  ScrollView,
   StyleSheet,
   View,
   ImageBackground,
   Text,
   Button
 } from 'react-native';
+import {
+  createDrawerNavigator,
+  createStackNavigator,
+  createAppContainer,
+  SafeAreaView,
+  DrawerItems,
+  
+} from 'react-navigation';
 import CountriesList from '../components/CountriesList';
 import Calendar from '../components/Calendar';
+import SearchScreen from './SearchScreen'
 
 
 
-export default function HomeScreen() {
-  return (
+class HomeScreen extends Component {
+  render(){
+  return(
     <ImageBackground style={styles.backImg} source={require('../assets/images/home_2.jpg')} >
       <View style={styles.welcomeContainer}>
         <Image source={require('../assets/images/cheLogo.png')} style={styles.welcomeImage}/>
@@ -35,16 +43,30 @@ export default function HomeScreen() {
           <Calendar/>
         </View>
         <View style={styles.button}>
-          <Button title="search"/>
+          <Button title="search" onPress={() => this.props.navigation.navigate('Search') }/>
         </View>
-        
-        
-        
-        
       </View>
     </ImageBackground>
   );
-}
+}}
+const Home_Navigator = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: null
+    }),
+  },
+  Search: {
+    screen: SearchScreen,
+    // navigationOptions: ({ navigation }) => ({
+    //   header: null
+    // }),
+  },
+});
+
+const Home = createAppContainer(Home_Navigator);
+
+export default Home;
 
 const styles = StyleSheet.create({
   backImg: {
