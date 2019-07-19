@@ -24,8 +24,12 @@ export default function HomeScreen() {
           />
         </View>
 
-        < CountriesList />
-        <Calendar />
+        <View>
+          < CountriesList />
+        </View>
+        <View>
+          <Calendar />
+        </View>
 
       </ScrollView>
     </View>

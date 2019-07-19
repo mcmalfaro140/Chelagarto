@@ -9,9 +9,9 @@ import {
   createAppContainer,
   SafeAreaView,
   DrawerItems,
-  
+
 } from 'react-navigation';
- 
+
 
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -51,20 +51,20 @@ class NavigationDrawerStructure extends Component {
 
 class LogInStructure extends Component {
   render() {
-    
+
     return (
       <View style={{ flexDirection: 'row', marginRight: 15 }}>
-      <TouchableOpacity onPress={ () => this.props.navigationProps.navigate('Login') }>
-        <FontAwesome
-          name = "user-circle-o"
-          color="white"
-          size = {28}
-          
-        />
-        
-      </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigationProps.navigate('Login')}>
+          <FontAwesome
+            name="user-circle-o"
+            color="white"
+            size={28}
 
-    </View>
+          />
+
+        </TouchableOpacity>
+
+      </View>
     );
   }
 }
@@ -185,7 +185,7 @@ const Login_StackNavigator = createStackNavigator({
       //   zIndex: 100
       // },
       headerTransparent: true,
-            
+
     }),
   },
 });
@@ -217,7 +217,7 @@ const menuLayout = (props) => (
 const DrawerNavigator = createDrawerNavigator({
   //Drawer Optons and indexing
   Home: {
-    screen: Contact_StackNavigator,
+    screen: Home_StackNavigator,
     navigationOptions: {
       drawerLabel: 'Home',
       drawerIcon: () => (
@@ -282,19 +282,19 @@ const DrawerNavigator = createDrawerNavigator({
     navigationOptions: {
       drawerLabel: 'Sign up/Log in ',
       drawerIcon: () => (
-        <FontAwesome name = "user-circle-o" size = {20} />
-      ) 
-      
+        <FontAwesome name="user-circle-o" size={20} />
+      )
+
     },
-    
+
   },
-  
-  
-  
-},{
-  //It will create the layout of me drawer menu
-  contentComponent: menuLayout
-});
+
+
+
+}, {
+    //It will create the layout of me drawer menu
+    contentComponent: menuLayout
+  });
 
 const AppContainer = createAppContainer(DrawerNavigator);
 

@@ -14,11 +14,11 @@ class CountriesList extends Component {
    }
 
    render() {
-      var data = [["Argentina", "Chile", "Brazil", "Paraguay"]];
+      var data = [["Uruguay", "Rio de Janeiro", "Argentina", "Chile", "Brazil", "Paraguay"]];
       return (
          <View >
             <View style={{ height: 14 }} />
-            <Text>
+            <Text style={{ textAlign: "center" }}>
                Choose a destination
             </Text>
             <DropdownMenu
@@ -28,16 +28,15 @@ class CountriesList extends Component {
                activityTintColor={'green'}
 
                handler={(selection, row) => this.setState({ text: data[selection][row] })}
-               data={data}
-            >
+               data={data} />
 
-               <View style={{ flex: 1 }}>
-                  <Text>
-                     You selected: {this.state.text}
-                  </Text>
-               </View>
+            <View style={{ flex: 1 }}>
+               <Text>
+                  You selected: {this.state.text}
+               </Text>
+            </View>
 
-            </DropdownMenu>
+
          </View>
       );
    }
