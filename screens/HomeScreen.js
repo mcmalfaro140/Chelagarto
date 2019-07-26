@@ -15,7 +15,7 @@ import {
 import CountriesList from '../components/CountriesList';
 import Calendar from '../components/Calendar';
 import SearchScreen from '../screens/SearchScreen'
-import {Backbtn} from '../navigation/BackNav'
+// import {Backbtn} from '../navigation/BackNav'
 
 
 class HomeScreen extends React.Component{
@@ -62,7 +62,7 @@ const Home_Navigator = createStackNavigator({
   Search: {
     screen: SearchScreen,
     navigationOptions: ({ navigation }) => ({
-      headerLeft: <Backbtn navigationProps={navigation} />,
+      // headerLeft: <Backbtn navigationProps={navigation} />,
     }),
   },
 },{
