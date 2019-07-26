@@ -1,42 +1,45 @@
-import * as WebBrowser from 'expo-web-browser';
 import React from 'react';
 import {
     Image,
     Platform,
     ScrollView,
     StyleSheet,
-    Text,
-    TouchableOpacity,
     View,
-    Button,
 } from 'react-native';
 
+class SearchScreen extends React.Component {
+    static navigationOptions = {
+        headerStyle: {
+            backgroundColor: 'black',
+    
+          },
+        
+    };
+    render() {
+        return (
+        
+                    <View style={styles.container}>
+                        <ScrollView
+                            style={styles.container}
+                            contentContainerStyle={styles.contentContainer}>
+                            <View style={styles.welcomeContainer}>
+                                <Image
+                                    source={require('../assets/images/cheLogo.png')}
+                                    style={styles.welcomeImage}
+                                />
+                            </View>
+                            {/* <Button
+                    title="Go to Jane's profile"
+                    onPress={() => this.props.navigation.push('Details')}
+                  /> */}
+                        </ScrollView>
+                    </View>
+                );
+    }
+  
+  }
 
-
-
-export default function Searchcreen() {
-    navigationOptions = {
-        header: null,
-      };
-    return (
-        <View style={styles.container}>
-            <ScrollView
-                style={styles.container}
-                contentContainerStyle={styles.contentContainer}>
-                <View style={styles.welcomeContainer}>
-                    <Image
-                        source={require('../assets/images/cheLogo.png')}
-                        style={styles.welcomeImage}
-                    />
-                </View>
-                {/* <Button
-        title="Go to Jane's profile"
-        onPress={() => this.props.navigation.push('Details')}
-      /> */}
-            </ScrollView>
-        </View>
-    );
-}
+  export default SearchScreen;
 
 
 

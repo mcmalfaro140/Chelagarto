@@ -5,23 +5,20 @@ import {
   View,
   ImageBackground,
   Text,
-  Button
+  Button,
 } from 'react-native';
 import {
-  createDrawerNavigator,
   createStackNavigator,
   createAppContainer,
-  SafeAreaView,
-  DrawerItems,
   
 } from 'react-navigation';
 import CountriesList from '../components/CountriesList';
 import Calendar from '../components/Calendar';
-import SearchScreen from './SearchScreen'
+import SearchScreen from '../screens/SearchScreen'
+import {Backbtn} from '../navigation/BackNav'
 
 
-
-class HomeScreen extends Component {
+class HomeScreen extends React.Component{
   render(){
   return(
     <ImageBackground style={styles.backImg} source={require('../assets/images/home_2.jpg')} >
@@ -43,12 +40,18 @@ class HomeScreen extends Component {
           <Calendar/>
         </View>
         <View style={styles.button}>
-          <Button title="search" onPress={() => this.props.navigation.navigate('Search') }/>
+          <Button title="search" onPress={() => this.props.navigation.navigate('Search')}/>
         </View>
       </View>
     </ImageBackground>
+    
   );
-}}
+}
+
+}
+
+
+
 const Home_Navigator = createStackNavigator({
   Home: {
     screen: HomeScreen,
@@ -58,16 +61,17 @@ const Home_Navigator = createStackNavigator({
   },
   Search: {
     screen: SearchScreen,
-    // navigationOptions: ({ navigation }) => ({
-    //   header: null
-    // }),
+    navigationOptions: ({ navigation }) => ({
+      headerLeft: <Backbtn navigationProps={navigation} />,
+    }),
   },
+},{
+  initialRouteName: 'Home'
 });
 
 const Home = createAppContainer(Home_Navigator);
 
 export default Home;
-
 const styles = StyleSheet.create({
   backImg: {
     flex: 1,
